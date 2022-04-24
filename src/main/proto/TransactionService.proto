@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpcclient;
+
+message TransactionRequest {
+  string wallet_id = 1;
+}
+
+message TransactionResponse {
+  string wallet_id = 1;
+  string amount = 2;
+  string category = 3;
+  string event = 4;
+}
+
+service TransactionService {
+  rpc getTransactionForWallet(TransactionRequest) returns (TransactionResponse);
+}
